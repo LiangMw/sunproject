@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="jfinal_demo_for_maven" default="all">
+  
+  
+  <property file="sunproject.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.ear"/>
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+    <include name="*.swc"/>
+    <include name="*.ane"/>
+    <include name="*.war"/>
+    <include name="*.zip"/>
+    <include name="*.klib"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/ext/access-bridge-64.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.maven:_com.alibaba:druid:1.0.29.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/alibaba/druid/1.0.29/druid-1.0.29.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.jfinal:cos:2017.5.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/jfinal/cos/2017.5/cos-2017.5.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.jfinal:jfinal-undertow:1.7.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/jfinal/jfinal-undertow/1.7/jfinal-undertow-1.7.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.jfinal:jfinal:4.3.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/jfinal/jfinal/4.3/jfinal-4.3.jar"/>
+  </path>
+  
+  <path id="library.maven:_io.undertow:undertow-core:2.0.22.final.classpath">
+    <pathelement location="${path.variable.maven_repository}/io/undertow/undertow-core/2.0.22.Final/undertow-core-2.0.22.Final.jar"/>
+  </path>
+  
+  <path id="library.maven:_io.undertow:undertow-servlet:2.0.22.final.classpath">
+    <pathelement location="${path.variable.maven_repository}/io/undertow/undertow-servlet/2.0.22.Final/undertow-servlet-2.0.22.Final.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.servlet:javax.servlet-api:4.0.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/servlet/javax.servlet-api/4.0.1/javax.servlet-api-4.0.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_junit:junit:3.8.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/junit/junit/3.8.1/junit-3.8.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_log4j:log4j:1.2.16.classpath">
+    <pathelement location="${path.variable.maven_repository}/log4j/log4j/1.2.16/log4j-1.2.16.jar"/>
+  </path>
+  
+  <path id="library.maven:_mysql:mysql-connector-java:5.1.44.classpath">
+    <pathelement location="${path.variable.maven_repository}/mysql/mysql-connector-java/5.1.44/mysql-connector-java-5.1.44.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.jboss.logging:jboss-logging:3.4.0.final.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/jboss/logging/jboss-logging/3.4.0.Final/jboss-logging-3.4.0.Final.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.jboss.xnio:xnio-api:3.3.8.final.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/jboss/xnio/xnio-api/3.3.8.Final/xnio-api-3.3.8.Final.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.jboss.xnio:xnio-nio:3.3.8.final.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/jboss/xnio/xnio-nio/3.3.8.Final/xnio-nio-3.3.8.Final.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.slf4j:slf4j-nop:1.7.25.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/slf4j/slf4j-nop/1.7.25/slf4j-nop-1.7.25.jar"/>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <fileset dir="${javac2.home}">
+      <include name="javac2.jar"/>
+      <include name="jdom.jar"/>
+      <include name="asm-all*.jar"/>
+      <include name="forms-*.jar"/>
+    </fileset>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module jfinal_demo_for_maven -->
+  
+  <dirname property="module.jfinal_demo_for_maven.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.jfinal_demo_for_maven" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.jfinal_demo_for_maven" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.jfinal_demo_for_maven" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.jfinal_demo_for_maven" value="-encoding UTF-8 -source 8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="jfinal_demo_for_maven.output.dir" value="${module.jfinal_demo_for_maven.basedir}/target/classes"/>
+  <property name="jfinal_demo_for_maven.testoutput.dir" value="${module.jfinal_demo_for_maven.basedir}/target/test-classes"/>
+  
+  <path id="jfinal_demo_for_maven.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="jfinal_demo_for_maven.module.production.classpath">
+    <path refid="${module.jdk.classpath.jfinal_demo_for_maven}"/>
+    <path refid="library.maven:_com.jfinal:jfinal-undertow:1.7.classpath"/>
+    <path refid="library.maven:_io.undertow:undertow-core:2.0.22.final.classpath"/>
+    <path refid="library.maven:_org.jboss.logging:jboss-logging:3.4.0.final.classpath"/>
+    <path refid="library.maven:_org.jboss.xnio:xnio-api:3.3.8.final.classpath"/>
+    <path refid="library.maven:_io.undertow:undertow-servlet:2.0.22.final.classpath"/>
+    <path refid="library.maven:_javax.servlet:javax.servlet-api:4.0.1.classpath"/>
+    <path refid="library.maven:_com.jfinal:jfinal:4.3.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-nop:1.7.25.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.16.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:5.1.44.classpath"/>
+    <path refid="library.maven:_com.alibaba:druid:1.0.29.classpath"/>
+    <pathelement location="C:/Program Files/Java/jdk1.8.0_25/lib/jconsole.jar"/>
+    <pathelement location="C:/Program Files/Java/jdk1.8.0_25/lib/tools.jar"/>
+    <path refid="library.maven:_com.jfinal:cos:2017.5.classpath"/>
+  </path>
+  
+  <path id="jfinal_demo_for_maven.runtime.production.module.classpath">
+    <pathelement location="${jfinal_demo_for_maven.output.dir}"/>
+    <path refid="library.maven:_com.jfinal:jfinal-undertow:1.7.classpath"/>
+    <path refid="library.maven:_io.undertow:undertow-core:2.0.22.final.classpath"/>
+    <path refid="library.maven:_org.jboss.logging:jboss-logging:3.4.0.final.classpath"/>
+    <path refid="library.maven:_org.jboss.xnio:xnio-api:3.3.8.final.classpath"/>
+    <path refid="library.maven:_org.jboss.xnio:xnio-nio:3.3.8.final.classpath"/>
+    <path refid="library.maven:_io.undertow:undertow-servlet:2.0.22.final.classpath"/>
+    <path refid="library.maven:_javax.servlet:javax.servlet-api:4.0.1.classpath"/>
+    <path refid="library.maven:_com.jfinal:jfinal:4.3.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-nop:1.7.25.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.16.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:5.1.44.classpath"/>
+    <path refid="library.maven:_com.alibaba:druid:1.0.29.classpath"/>
+    <pathelement location="C:/Program Files/Java/jdk1.8.0_25/lib/jconsole.jar"/>
+    <pathelement location="C:/Program Files/Java/jdk1.8.0_25/lib/tools.jar"/>
+    <path refid="library.maven:_com.jfinal:cos:2017.5.classpath"/>
+  </path>
+  
+  <path id="jfinal_demo_for_maven.module.classpath">
+    <path refid="${module.jdk.classpath.jfinal_demo_for_maven}"/>
+    <pathelement location="${jfinal_demo_for_maven.output.dir}"/>
+    <path refid="library.maven:_junit:junit:3.8.1.classpath"/>
+    <path refid="library.maven:_com.jfinal:jfinal-undertow:1.7.classpath"/>
+    <path refid="library.maven:_io.undertow:undertow-core:2.0.22.final.classpath"/>
+    <path refid="library.maven:_org.jboss.logging:jboss-logging:3.4.0.final.classpath"/>
+    <path refid="library.maven:_org.jboss.xnio:xnio-api:3.3.8.final.classpath"/>
+    <path refid="library.maven:_org.jboss.xnio:xnio-nio:3.3.8.final.classpath"/>
+    <path refid="library.maven:_io.undertow:undertow-servlet:2.0.22.final.classpath"/>
+    <path refid="library.maven:_javax.servlet:javax.servlet-api:4.0.1.classpath"/>
+    <path refid="library.maven:_com.jfinal:jfinal:4.3.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-nop:1.7.25.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.16.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:5.1.44.classpath"/>
+    <path refid="library.maven:_com.alibaba:druid:1.0.29.classpath"/>
+    <pathelement location="C:/Program Files/Java/jdk1.8.0_25/lib/jconsole.jar"/>
+    <pathelement location="C:/Program Files/Java/jdk1.8.0_25/lib/tools.jar"/>
+    <path refid="library.maven:_com.jfinal:cos:2017.5.classpath"/>
+  </path>
+  
+  <path id="jfinal_demo_for_maven.runtime.module.classpath">
+    <pathelement location="${jfinal_demo_for_maven.testoutput.dir}"/>
+    <pathelement location="${jfinal_demo_for_maven.output.dir}"/>
+    <path refid="library.maven:_junit:junit:3.8.1.classpath"/>
+    <path refid="library.maven:_com.jfinal:jfinal-undertow:1.7.classpath"/>
+    <path refid="library.maven:_io.undertow:undertow-core:2.0.22.final.classpath"/>
+    <path refid="library.maven:_org.jboss.logging:jboss-logging:3.4.0.final.classpath"/>
+    <path refid="library.maven:_org.jboss.xnio:xnio-api:3.3.8.final.classpath"/>
+    <path refid="library.maven:_org.jboss.xnio:xnio-nio:3.3.8.final.classpath"/>
+    <path refid="library.maven:_io.undertow:undertow-servlet:2.0.22.final.classpath"/>
+    <path refid="library.maven:_javax.servlet:javax.servlet-api:4.0.1.classpath"/>
+    <path refid="library.maven:_com.jfinal:jfinal:4.3.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-nop:1.7.25.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.16.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:5.1.44.classpath"/>
+    <path refid="library.maven:_com.alibaba:druid:1.0.29.classpath"/>
+    <pathelement location="C:/Program Files/Java/jdk1.8.0_25/lib/jconsole.jar"/>
+    <pathelement location="C:/Program Files/Java/jdk1.8.0_25/lib/tools.jar"/>
+    <path refid="library.maven:_com.jfinal:cos:2017.5.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.jfinal_demo_for_maven">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.jfinal_demo_for_maven">
+    <patternset refid="excluded.from.module.jfinal_demo_for_maven"/>
+  </patternset>
+  
+  <path id="jfinal_demo_for_maven.module.sourcepath">
+    <dirset dir="${module.jfinal_demo_for_maven.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="jfinal_demo_for_maven.module.test.sourcepath">
+    <dirset dir="${module.jfinal_demo_for_maven.basedir}">
+      <include name="src/test/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.jfinal_demo_for_maven" depends="compile.module.jfinal_demo_for_maven.production,compile.module.jfinal_demo_for_maven.tests" description="Compile module jfinal_demo_for_maven"/>
+  
+  <target name="compile.module.jfinal_demo_for_maven.production" depends="register.custom.compilers" description="Compile module jfinal_demo_for_maven; production classes">
+    <mkdir dir="${jfinal_demo_for_maven.output.dir}"/>
+    <javac2 destdir="${jfinal_demo_for_maven.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.jfinal_demo_for_maven}/javac">
+      <compilerarg line="${compiler.args.jfinal_demo_for_maven}"/>
+      <bootclasspath refid="jfinal_demo_for_maven.module.bootclasspath"/>
+      <classpath refid="jfinal_demo_for_maven.module.production.classpath"/>
+      <src refid="jfinal_demo_for_maven.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.jfinal_demo_for_maven"/>
+    </javac2>
+    
+    <copy todir="${jfinal_demo_for_maven.output.dir}">
+      <fileset dir="${module.jfinal_demo_for_maven.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.jfinal_demo_for_maven.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.jfinal_demo_for_maven.tests" depends="register.custom.compilers,compile.module.jfinal_demo_for_maven.production" description="compile module jfinal_demo_for_maven; test classes" unless="skip.tests">
+    <mkdir dir="${jfinal_demo_for_maven.testoutput.dir}"/>
+    <javac2 destdir="${jfinal_demo_for_maven.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.jfinal_demo_for_maven}/javac">
+      <compilerarg line="${compiler.args.jfinal_demo_for_maven}"/>
+      <bootclasspath refid="jfinal_demo_for_maven.module.bootclasspath"/>
+      <classpath refid="jfinal_demo_for_maven.module.classpath"/>
+      <src refid="jfinal_demo_for_maven.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.jfinal_demo_for_maven"/>
+    </javac2>
+    
+    <copy todir="${jfinal_demo_for_maven.testoutput.dir}">
+      <fileset dir="${module.jfinal_demo_for_maven.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.jfinal_demo_for_maven" description="cleanup module">
+    <delete dir="${jfinal_demo_for_maven.output.dir}"/>
+    <delete dir="${jfinal_demo_for_maven.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.jfinal_demo_for_maven" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.jfinal_demo_for_maven" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+</project>

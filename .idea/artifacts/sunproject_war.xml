@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="sunproject:war">
+    <output-path>$PROJECT_DIR$/target/mywar</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>sunproject</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="sunproject.war">
+      <element id="artifact" artifact-name="sunproject:war exploded" />
+    </root>
+  </artifact>
+</component>
