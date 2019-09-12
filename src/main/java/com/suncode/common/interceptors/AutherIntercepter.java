@@ -1,12 +1,12 @@
 package com.suncode.common.interceptors;
 
-import com.suncode.common.base.BaseController;
-import com.suncode.common.base.SysStatus;
-import com.suncode.common.model.bean.Token;
 import com.jfinal.aop.Interceptor;
 import com.jfinal.aop.Invocation;
 import com.jfinal.kit.HashKit;
 import com.jfinal.kit.StrKit;
+import com.suncode.common.base.BaseController;
+import com.suncode.common.base.SysStatus;
+import com.suncode.common.model.bean.Token;
 
 public class AutherIntercepter implements Interceptor{
 

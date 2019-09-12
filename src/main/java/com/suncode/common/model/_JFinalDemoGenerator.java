@@ -1,10 +1,10 @@
 package com.suncode.common.model;
 
-import com.suncode.common.DemoConfig;
 import com.jfinal.kit.PathKit;
 import com.jfinal.plugin.activerecord.dialect.MysqlDialect;
 import com.jfinal.plugin.activerecord.generator.Generator;
 import com.jfinal.plugin.druid.DruidPlugin;
+import com.suncode.common.DemoConfig;
 
 import javax.sql.DataSource;
 
@@ -24,12 +24,14 @@ public class _JFinalDemoGenerator {
 	
 	public static void main(String[] args) {
 		// base model 所使用的包名
-		String baseModelPackageName = "com.demo.common.model.base";
+		String baseModelPackageName = "com.suncode.common.model.base";
 		// base model 文件保存路径
-		String baseModelOutputDir = PathKit.getWebRootPath() + "/src/main/java/com/demo/common/model/base";
+		String webrootpath = PathKit.getWebRootPath();
+		System.out.println(webrootpath);
+		String baseModelOutputDir = webrootpath.substring(0,webrootpath.lastIndexOf("\\")) + "/src/main/java/com/suncode/common/model/base";
 		
 		// model 所使用的包名 (MappingKit 默认使用的包名)
-		String modelPackageName = "com.demo.common.model.bean";
+		String modelPackageName = "com.suncode.common.model.bean";
 		// model 文件保存路径 (MappingKit 与 DataDictionary 文件默认保存路径)
 		String modelOutputDir = baseModelOutputDir + "/../bean/";
 		
@@ -49,7 +51,7 @@ public class _JFinalDemoGenerator {
 		generator.addExcludedTable("adv");
 		
 		// 设置是否在 Model 中生成 dao 对象
-		generator.setGenerateDaoInModel(false);
+		generator.setGenerateDaoInModel(true);
 		
 		// 设置是否生成字典文件
 		generator.setGenerateDataDictionary(true);

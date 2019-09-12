@@ -1,0 +1,15 @@
+# config false
+#jdbcUrl = jdbc:mysql://118.24.213.53/lmw_useworker?characterEncoding=utf8&useSSL=false&zeroDateTimeBehavior=convertToNull
+#user = mingwei
+#password = Wei_13579
+jdbcUrl = jdbc:mysql://localhost/lmw_useworker?characterEncoding=utf8&useSSL=false&zeroDateTimeBehavior=convertToNull
+user = root
+password = 123456
+
+# true
+debugjdbcUrl = jdbc:mysql://localhost/lmw_useworker?characterEncoding=utf8&useSSL=false&zeroDateTimeBehavior=convertToNull
+debuguser = root
+debugpassword = 123456
+
+# false正式模式 true：调试模式
+devMode = true

@@ -12,7 +12,6 @@ import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.druid.DruidPlugin;
 import com.jfinal.server.undertow.UndertowServer;
 import com.jfinal.template.Engine;
-import com.suncode.blog.BlogController;
 import com.suncode.common.interceptors.ExceptionInterceptor;
 import com.suncode.common.model.bean._MappingKit;
 import com.suncode.index.IndexController;
@@ -71,7 +70,6 @@ public class DemoConfig extends JFinalConfig {
 	 */
 	public void configRoute(Routes me) {
 		me.add("/", IndexController.class, "/index");	// 第三个参数为该Controller的视图存放路径
-		me.add("/blog", BlogController.class);			// 第三个参数省略时默认与第一个参数值相同，在此即为 "/blog"
 		me.add(new AdminRoutes());//后端路由
 		me.add(new FrontRoutes());//前端路由
 	}
@@ -99,7 +97,8 @@ public class DemoConfig extends JFinalConfig {
 	
 	public static DruidPlugin createDruidPlugin() {
 		loadConfig();
-		return new DruidPlugin(p.get("jdbcUrl"), p.get("user"), p.get("password").trim());
+		boolean debug = p.getBoolean("devMode", false);
+		return new DruidPlugin(debug?p.get("debugjdbcUrl"):p.get("jdbcUrl"), debug?p.get("debuguser"):p.get("user"), debug?p.get("debugpassword").trim():p.get("password").trim());
 	}
 	
 	/**

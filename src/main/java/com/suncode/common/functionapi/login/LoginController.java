@@ -1,7 +1,10 @@
 package com.suncode.common.functionapi.login;
 
-import com.suncode.common.base.BaseController;
 import com.jfinal.aop.Clear;
+import com.jfinal.plugin.activerecord.Record;
+import com.suncode.common.base.BaseController;
+
+import java.util.List;
 
 /**
  * Created by 梁明伟 on 2019/8/16.
@@ -19,6 +22,22 @@ public class LoginController extends BaseController {
         }else{
             renderAppError("参数错误");
         }
+    }
+
+    @Clear
+    public void getTableRow(){
+
+        List<Record> tb = ls.getTables();
+        for (int i = 0; i < tb.size(); i++) {
+            tb.get(i).set("tablerow",ls.getTables());
+        }
+        renderAppJson(tb);
+
+    }
+
+    @Clear
+    public void setTables(){
+        ls.addData();
     }
 
 }

@@ -1,9 +1,9 @@
 package com.suncode.common.interceptors;
 
-import com.suncode.common.model.bean.User;
 import com.jfinal.aop.Interceptor;
 import com.jfinal.aop.Invocation;
 import com.jfinal.core.Controller;
+import com.suncode.common.model.bean.User;
 
 public class LoginInterceptor implements Interceptor {
 

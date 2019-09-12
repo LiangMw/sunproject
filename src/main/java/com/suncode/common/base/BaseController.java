@@ -1,6 +1,5 @@
 package com.suncode.common.base;
 
-import com.suncode.common.exception.MyException;
 import com.jfinal.core.Controller;
 import com.jfinal.i18n.I18n;
 import com.jfinal.i18n.Res;
@@ -9,6 +8,7 @@ import com.jfinal.plugin.activerecord.ActiveRecordException;
 import com.jfinal.plugin.activerecord.Model;
 import com.jfinal.plugin.activerecord.Table;
 import com.jfinal.plugin.activerecord.TableMapping;
+import com.suncode.common.exception.MyException;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -211,7 +211,9 @@ public class BaseController extends Controller {
 		} else {
 			isError = false; // 初始化
 		}
+		System.out.println(resultMap.toString());
 		this.renderJson(JsonKit.toJson(resultMap));
+//		this.renderJson(resultMap);
 	}
 
 	/**
